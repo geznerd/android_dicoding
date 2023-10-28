@@ -30,18 +30,53 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         
         btnResult.setOnClickListener(this)
 
-
+        if(savedInstanceState != null){
+            val resulta = savedInstanceState.getString(STATE_RESULT)
+            result.text = resulta
+        }
     }
 
     override fun onClick(v: View?) {
         if(v?.id == R.id.btn_result){
-            val inputLength = panjang.text.toString().trim().toDouble()
-            val inputWidth = lebar.text.toString().trim().toDouble()
-            val inputHeight = tinggi.text.toString().trim().toDouble()
-            val volume_balok = inputLength * inputWidth * inputHeight
+            val inputLength = panjang.text.toString().trim()
+            val inputWidth = lebar.text.toString().trim()
+            val inputHeight = tinggi.text.toString().trim()
+            var isEmptyFields = false
 
-            result.text = volume_balok.toString()
+            if (inputLength.isEmpty()){
+                isEmptyFields = true
+                panjang.error = "Bagian ini harus diisi"
+                result.text = getString(R.string.ada_bagian_yang_belum_diisi)
+            }
+
+            if (inputWidth.isEmpty()){
+                isEmptyFields = true
+                lebar.error = "Bagian ini harus diisi"
+                result.text = getString(R.string.ada_bagian_yang_belum_diisi)
+            }
+
+            if(inputHeight.isEmpty()){
+                isEmptyFields = true
+                tinggi.error = "Bagian ini harus diisi"
+                result.text = getString(R.string.ada_bagian_yang_belum_diisi)
+            }
+
+            if (!isEmptyFields){
+                val volume_balok = inputLength.toDouble() * inputWidth.toDouble() * inputHeight.toDouble()
+
+                result.text = volume_balok.toString()
+            }
+
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(STATE_RESULT, result.text.toString())
+    }
+
+    companion object{
+        private val STATE_RESULT = "state result"
     }
 
 

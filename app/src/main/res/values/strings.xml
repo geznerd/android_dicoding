@@ -5,4 +5,5 @@
     <string name="tinggi">Tinggi</string>
     <string name="Hitung">Hitung</string>
     <string name="hasil">Hasil</string>
+    <string name="ada_bagian_yang_belum_diisi">Ada bagian yang belum diisi</string>
 </resources>
