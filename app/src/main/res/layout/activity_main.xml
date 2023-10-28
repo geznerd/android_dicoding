@@ -49,4 +49,20 @@
         android:minHeight="48dp"
         android:hint="Isi dengan Angka"/>
 
+    <Button
+        android:id="@+id/btn_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Hitung" />
+
+    <TextView
+        android:id="@+id/tv_hasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/hasil"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
 </LinearLayout>
