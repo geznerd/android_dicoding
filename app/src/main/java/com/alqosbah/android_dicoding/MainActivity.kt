@@ -2,6 +2,7 @@ package com.alqosbah.android_dicoding
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -16,10 +17,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val btnMove: Button = findViewById(R.id.btn_move_activity)
         val btnMoveWithData: Button = findViewById(R.id.btn_move_with_data)
         val btnMoveWithObject: Button = findViewById(R.id.btn_parcelable)
+        val btnDial: Button = findViewById(R.id.btn_dial)
 
         btnMove.setOnClickListener(this)
         btnMoveWithData.setOnClickListener(this)
         btnMoveWithObject.setOnClickListener(this)
+        btnDial.setOnClickListener(this)
 
     }
 
@@ -46,6 +49,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val moveObjectIntent = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
                 moveObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
                 startActivity(moveObjectIntent)
+            }
+            R.id.btn_dial ->{
+                val phoneNumber = "628121543747"
+                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel: $phoneNumber"))
+                //dialPhoneIntent.setPackage("com.whatsapp")
+                startActivity((dialPhoneIntent))
             }
         }
     }

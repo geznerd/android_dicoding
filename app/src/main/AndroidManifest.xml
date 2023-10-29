@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/dos_lowongan_dicoding_dicoding_indonesia_070922131405"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/dos_lowongan_dicoding_dicoding_indonesia_070922131405"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_dicoding"
         tools:targetApi="31">

@@ -4,4 +4,5 @@
     <string name="move_with_data">Move With Data</string>
     <string name="title_activity_move_with_data">MoveActivityWithData</string>
     <string name="move_with_object">Move With Object</string>
+    <string name="dial_a_number">Dial a number</string>
 </resources>
