@@ -15,8 +15,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnMove: Button = findViewById(R.id.btn_move_activity)
         val btnMoveWithData: Button = findViewById(R.id.btn_move_with_data)
+        val btnMoveWithObject: Button = findViewById(R.id.btn_parcelable)
+
         btnMove.setOnClickListener(this)
         btnMoveWithData.setOnClickListener(this)
+        btnMoveWithObject.setOnClickListener(this)
 
     }
 
@@ -31,7 +34,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 moveWithData.putExtra(MoveActivityWithData.EXTRA_NAME, "Hanjaya")
                 moveWithData.putExtra(MoveActivityWithData.EXTRA_AGE, "19")
                 startActivity(moveWithData)
+            }
+            R.id.btn_parcelable -> {
+                val person = Person(
+                    "Azmi",
+                    23,
+                    "azmi@gmail.com",
+                    "Bandung"
+                )
 
+                val moveObjectIntent = Intent(this@MainActivity, MoveWithObjectActivity::class.java)
+                moveObjectIntent.putExtra(MoveWithObjectActivity.EXTRA_PERSON, person)
+                startActivity(moveObjectIntent)
             }
         }
     }
